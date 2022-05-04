@@ -1,4 +1,5 @@
 import {DataSource, DataSourceOptions} from "typeorm";
+import {Admin} from "./src/modules/admin/entities/admin.entity";
 
 const typeOrmConfig: DataSourceOptions = {
     type: 'postgres',
@@ -8,13 +9,13 @@ const typeOrmConfig: DataSourceOptions = {
     password: '22864231',
     database: 'blog',
     dropSchema: false,
-    synchronize: true,
+    synchronize: false,
     migrationsRun: false,
     logging: true,
     migrationsTableName: 'migrations',
     name: 'default',
-    entities: ['src/**.entity{.ts,.js}'],
-    migrations: ['src/migrations'],
+    entities: ['dist/src/modules/**/entities/*.entity{.ts,.js}'],
+    migrations: ['dist/src/migrations/*{.ts,.js}'],
     // subscribers: ['src/subscriber/**/*{.ts,.js}'],
     // entities: [
     //     'dist/entity/*{.js,.ts}'
